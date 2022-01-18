@@ -1,0 +1,40 @@
+buildscript {
+    ext {
+        compileSdkVersion = 30
+        minSdkVersion = 14
+        targetSdkVersion = 30
+
+        kotlinVersion = '1.4.21'
+
+        buildToolsVersion = '30.0.3'
+
+        sourceCompatibilityVersion = JavaVersion.VERSION_1_8
+        targetCompatibilityVersion = JavaVersion.VERSION_1_8
+
+        keystoreProperties = '../keystore/release.properties'
+
+        app_version_code = 1
+        app_version_name = "1.0"
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.17"
+    }
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
